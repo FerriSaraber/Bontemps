@@ -90,9 +90,10 @@ hr{
     margin-top:75px;
 }
 .container{
-    width:200px;
+    width:1000px;
     margin: 0 auto;
     margin-top:20px;
+    position:relative;
 }
 
 .container textarea{
@@ -102,4 +103,15 @@ hr{
     font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
     font-size:15px;
     resize: none;
+    float: left; 
+    position:relative;
+    border:none;
+    outline:none;
+}
+
+button {
+    position:absolute;
+    top: 3px;
+    right:3px;
+    width: 60px;
 }
