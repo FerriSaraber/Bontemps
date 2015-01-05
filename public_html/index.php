@@ -19,9 +19,8 @@
 </div>
 <hr>
 <div class="container">
-    <textarea placeholder="voorbeeld naam">
-        
-    </textarea>
+  <button>print rekening</button>
+  <textarea class="rekeningselectie" placeholder="voorbeeldnaam"></textarea>
 </div>
 <?php
 	require_once( "footer.php");
