@@ -1,5 +1,5 @@
 <?php
-    //require_once("resources/config.php");
+    require_once("config.php");
     require_once( "header.php");
 ?>
 
@@ -22,15 +22,15 @@
 <div class="container-add" id="add">
     <div class="gast-toevoegen">
         <fieldset><legend><h3>Gast toevoegen: </h3></legend>
-        <form action="#" method="get" id="gast-toevoegen">
-            <label>Naam:</label> <input type="text" name="naam" required="true"><br>
+        <form action="" method="post" id="gast-toevoegen">
+            <label>Voornaam:</label> <input type="text" name="voornaam" required="true"><br>
+            <label>Achternaam:</label> <input type="text" name="achternaam" required="true"><br>
             <label>Adres: </label> <input type="text" name="adres"><br>
             <label>Woonplaats: </label> <input type="text" name="woonplaats"><br>
             <label>Email: </label> <input type="email" name="email"><br>
-            <label>Telefoon: </label> <input type="text" name="telefoon" required="true"><br>
-            
+            <label>Telefoon: </label> <input type="text" name="telefoon" required="true"><br>  
         </form>
-            <button type="submit" form="gast-toevoegen" value="Submit">Voeg gast toe</button></fieldset>
+            <button type="submit" form="gast-toevoegen" value="Submit" name="btnAddGuest">Voeg gast toe</button></fieldset>
     </div>
     <div class="gast-zoeken">
        <fieldset><legend><h3>Gast zoeken: </h3></legend>
@@ -71,9 +71,21 @@
 
 </div>
 </div>
+<?php
+//declare variables
+$guestFirstname = $mysqli->real_escape_string($_POST[voornaam]);
+$guestSurname = $mysqli->real_escape_string($_POST[achternaam]);
+$guestAddress = $mysqli->real_escape_string($_POST[adres]);
+$guestCity = $mysqli->real_escape_string($_POST[woonplaats]);
+$guestEmail = $mysqli->real_escape_string($_POST[email]);
+$guestPhone = $mysqli->real_escape_string($_POST[telefoon]);
+$btnAddGuest = $_POST['btnAddGuest'];
 
+//call functions
+addGuest($guestFirstname, $guestSurname, $guestAddress, $guestCity, $guestEmail, $guestPhone, $btnAddGuest, $mysqli);
+?>
 
 
 <?php
-	require_once( "footer.php");
+    require_once( "footer.php");
 ?>
