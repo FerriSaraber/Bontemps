@@ -313,8 +313,7 @@ hr{
     text-align: right;
     margin-top:10px;
     margin-bottom: 10px;
-    width:200px;
-    
+    width:200px;  
 }
 
 .reservering-toevoegen label{
@@ -378,3 +377,124 @@ hr{
     color: #FFFFFF;
     background-color: #6E6E6E;
 }
+//====================================================================== Reservering wijzigen=================================================================
+
+#aanpassen{
+    position: relative;
+}
+#aanpassen .linkerdiv{
+    float:left;
+    width: 400px;
+    margin-left:50px;
+    margin-top:60px;
+    height:1000px;
+    border-bottom: none;
+    border-top:none;
+    border-left:none;
+    border-right: 1px solid #3B0B24;
+}
+
+#aanpassen .linkerdiv textarea{
+    width:200px;
+    float: left;
+    margin-left: 50px;
+    height:200px;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    font-size:15px;
+    resize: none;
+    clear: both;
+    position:relative;
+    border:1px solid #3B0B24;
+    outline:none;
+}
+
+#aanpassen .linkerdiv button{
+    text-align: center;
+    width:204px;
+    height:30px;
+    float: left;
+    margin-top:10px;
+    margin-left: 50px;
+    clear:both;
+    display:block;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: #FFFFFF;
+    background-color: #6E6E6E;
+}
+
+#aanpassen .linkerdiv fieldset{
+    width: 300px;
+    color: #6E6E6E;
+}
+
+#aanpassen .rechterdiv{
+    float:right;
+    width:1000px;
+    margin-right:150px;
+}
+
+#aanpassen .geselecteerde-reservering{
+    text-align:right;
+    float:right;
+    clear:both;
+    margin-top:20px;
+    margin-right:50px;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    font-size:18px;
+    font-weight: 500;
+    color:#3B0B24;
+}
+
+#aanpassen .geselecteerde-gast{
+    font-weight: 700;
+}
+
+#aanpassen .menu-items-toevoegen{
+    float:left;
+    width:300px;
+    margin-top:60px;
+}
+
+#aanpassen .menu-items-toevoegen label{
+    float:left;
+    clear:both;
+    margin-top:10px;
+    width:200px;
+    margin-right: 10px;
+    text-align: left;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+    color: #3B0B24;
+    font-size: 16px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px;
+}
+
+#aanpassen .menu-items-toevoegen input{
+    float:right;
+    text-align: right;
+    margin-top:5px;
+    margin-bottom: 10px;
+    width:40px;  
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+    color: #3B0B24;
+    font-size: 16px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px;
+}
+
+#aanpassen .menu-items-toevoegen button{
+    text-align: center;
+    width:270px;
+    height:30px;
+    float: right;
+    margin-top:10px;
+    clear:both;
+    display:block;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: #FFFFFF;
+    background-color: #6E6E6E;
+} 

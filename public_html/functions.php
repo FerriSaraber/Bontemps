@@ -16,4 +16,4 @@ function addGuest($firstname, $surname, $address, $city, $email, $phone, $button
     }
 }
 
-?>
+?> 

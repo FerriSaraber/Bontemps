@@ -88,4 +88,4 @@ addGuest($guestFirstname, $guestSurname, $guestAddress, $guestCity, $guestEmail,
 
 <?php
     require_once( "footer.php");
-?>
+?> 
