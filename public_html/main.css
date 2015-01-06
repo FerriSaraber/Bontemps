@@ -21,7 +21,7 @@ body{
 
 h1 { 
     font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
-    color: #150D06;
+    color: #3B0B24;
     font-size: 24px;
     font-style: normal;
     font-variant: normal;
@@ -31,8 +31,8 @@ h1 {
 
 h3 { 
     font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
-    color: #150D06;
-    font-size: 14px;
+    color: #3B0B24;
+    font-size: 16px;
     font-style: normal;
     font-variant: normal;
     font-weight: 500;
@@ -41,12 +41,17 @@ h3 {
 
 p { 
     font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
-    color: #180F06;
+    color: #3B0B24;
     font-size: 14px; 
     font-style: normal; 
     font-variant: normal; 
     font-weight: 400; 
     line-height: 20px; 
+}
+fieldset{
+    color: #3B0B24;
+    border: 1px solid #3B0B24;
+    border-radius: 5px;
 }
 //========================================================================Menu Balk================================================================
 .header{
@@ -83,17 +88,19 @@ p {
     margin-right: 35px;
     margin-left: 35px;
 }
-
+/*=================================================================index.php==========================================================================*/
 hr{
-    background-color:#6E6E6E;
+    background-color: #3B0B24;
     width:100%;
     margin-top:75px;
 }
+
 .container{
     width:1000px;
     margin: 0 auto;
     margin-top:20px;
     position:relative;
+    height: 340px;
 }
 
 .container textarea{
@@ -105,13 +112,244 @@ hr{
     resize: none;
     float: left; 
     position:relative;
-    border:none;
+    border:1px solid #6E6E6E;
     outline:none;
 }
 
-button {
+.container textfield{
+    width:600px;
+    height:340px;
+    display:block;
+    margin-left:300px;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    font-size:15px;
+    color: #3B0B24;
+    border: 0.5px solid #3B0B24;
+    background-color: #F2F2F2;
+    padding-left:10px;
+    
+}
+
+.container input {
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: #FFFFFF;
+    background-color: #6E6E6E;
+    width: 180px;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
     position:absolute;
-    top: 3px;
-    right:3px;
-    width: 60px;
+    display:block;
+    margin-top:310px;
+}
+
+//================================================================Reservering toevoegen==================================================
+.container-add{
+    width:1000px;
+    margin: 0 auto;
+    border-bottom: 1px solid #3B0B24;
+    border-top: none;
+    border-left:none;
+    border-right: none;
+}
+
+.gast-toevoegen{
+    width: 400px;
+    margin-left: 150px;
+    float:left;
+}
+
+.gast-toevoegen label{
+    width: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    float:left;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+    color: #3B0B24;
+    font-size: 14px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px; 
+}
+
+.gast-toevoegen input{
+    width: 200px;
+    float: right;
+    text-align: right;
+    margin-bottom: 10px;
+    display: block
+}
+
+.gast-toevoegen button{
+   text-align: center;
+   width:207px;
+   height:30px;
+   float: right;
+   font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+   color: #FFFFFF;
+   background-color: #6E6E6E;
+} 
+
+.gast-zoeken{
+    width: 400px;
+    margin-right: 290px;
+    float:right;
+    //height: 600px;
+}
+
+.gast-zoeken label{
+    width: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    float:left;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+    color: #3B0B24;
+    font-size: 14px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px;     
+}
+
+.gast-zoeken input{
+    width: 200px;
+    float: right;
+    text-align: right;
+    margin-bottom: 10px;
+    //display: block
+}
+
+.gast-zoeken button{
+   text-align: center;
+   width:207px;
+   height:30px;
+   float: right;
+   clear:both;
+   display:block;
+   font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+   color: #FFFFFF;
+   background-color: #6E6E6E;
+} 
+
+.gast-zoeken textarea{
+    width: 200px;
+    height: 100px;
+    margin-top: 20px;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    font-size:15px;
+    resize: none;
+    float: right; 
+    clear: both;
+    position:relative;
+    border:1px solid #6E6E6E;
+    outline:none;
+}
+
+.gevonden-gast{
+    width: 1190px;
+    margin-left: 150px;
+    margin-right: 100px;
+    margin-top: 50px;
+    float: left;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #3B0B24;
+    border-bottom: none;
+    border-left:none;
+    border-right:none;
+    
+}
+
+.left{
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: #3B0B24;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 15.4px;
+    float: left;
+    clear: both;
+} 
+
+.left-span{
+    font-weight:700;
+}
+
+.right{    
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: #3B0B24;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 15.4px;
+    float: right;
+} 
+
+.right-span{
+    font-weight: 700;
+}
+
+.reservering-toevoegen{
+    width: 400px;
+    float:left;
+    margin-bottom:10px;
+    
+}
+.toevoegen{
+    width:300px;
+    float:left;
+    clear:both;
+}
+
+.reservering-toevoegen input{
+    float:right;
+    text-align: right;
+    margin-top:10px;
+    margin-bottom: 10px;
+    width:200px;
+    
+}
+
+.reservering-toevoegen label{
+    float:left;
+    clear:both;
+    margin-top:10px;
+    width:140px;
+    margin-right: 10px;
+    text-align: left;
+    float:left;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+    color: #3B0B24;
+    font-size: 14px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px;
+}
+
+.toevoegen button{
+    text-align: center;
+    width:207px;
+    height:30px;
+    float: right;
+    clear:both;
+    display:block;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: #FFFFFF;
+    background-color: #6E6E6E;
+} 
+.bestellen{
+    width: 300px;
+    float:right;
+}
+
+.bestellen textarea{
+    width:300px;
+    height:266px;
 }
