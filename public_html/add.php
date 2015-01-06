@@ -23,29 +23,34 @@
     <div class="gast-toevoegen">
         <fieldset><legend><h3>Gast toevoegen: </h3></legend>
         <form action="" method="post" id="gast-toevoegen">
-            <label>Voornaam:</label> <input type="text" name="voornaam" required="true"><br>
-            <label>Achternaam:</label> <input type="text" name="achternaam" required="true"><br>
+            <label>*Voornaam:</label> <input type="text" name="voornaam" required="true"><br>
+            <label>*Achternaam:</label> <input type="text" name="achternaam" required="true"><br>
             <label>Adres: </label> <input type="text" name="adres"><br>
             <label>Woonplaats: </label> <input type="text" name="woonplaats"><br>
             <label>Email: </label> <input type="email" name="email"><br>
-            <label>Telefoon: </label> <input type="text" name="telefoon" required="true"><br>  
+            <label>*Telefoon: </label> <input type="text" name="telefoon" required="true"><br>  
         </form>
             <button type="submit" form="gast-toevoegen" value="Submit" name="btnAddGuest">Voeg gast toe</button></fieldset>
     </div>
     <div class="gast-zoeken">
        <fieldset><legend><h3>Gast zoeken: </h3></legend>
-        <form action="#" method="get" id="gast-zoeken">
-            <label>Naam:</label> <input type="text" name="naam" required="true"><br>
+        <form action="" method="post" id="gast-zoeken">
+            <label>Naam:</label> <input type="text" name="searchfield" required="true"><br>
+            <input type="hidden" name="selectedGuest" id="selectedGuest">
         </form>
-            <button type="submit" form="gast-zoeken" value="Submit">Zoek</button>
-        <textarea placeholder="Hier komen lekker namen, mmmm">
-        
-        </textarea>
+           <button type="submit" form="gast-zoeken" value="Submit" name="btnSearchGuest">Zoek</button>
+           <ul>
+               <?php
+                $searchfield = $mysqli->real_escape_string($_POST[searchfield]);
+                $btnSearchGuest = $_POST[btnSearchGuest];
+                searchGuest($searchfield, $btnSearchGuest, $mysqli);
+               ?>
+           </ul>
         </fieldset> 
     </div>
     <div class="gevonden-gast">
         <h3 class="left">Datum: <span class="left-span">Zaterdag 10 januari</span></h3>
-        <h3 class="left">Geselecteerde gast: <span class="left-span">Super Sanne</span></h3><h3 class="right"> Stoelen beschikbaar: <span class="right-span">123</span></h3>
+        <h3 class="left">Geselecteerde gast: <span class="left-span" id="lblSelectedGuest">Geen</span></h3><h3 class="right"> Stoelen beschikbaar: <span class="right-span">123</span></h3>
         <div class="toevoegen"><fieldset><legend><h3>Reservering toevoegen:   </h3></legend>
             <form class="reservering-toevoegen" action="#" method="get" id="reservering-toevoegen">
                 <label>Datum: </label> <input type="date" name="datum" required="true" placeholder="UU:MM">
@@ -81,11 +86,12 @@ $guestEmail = $mysqli->real_escape_string($_POST[email]);
 $guestPhone = $mysqli->real_escape_string($_POST[telefoon]);
 $btnAddGuest = $_POST['btnAddGuest'];
 
+
 //call functions
 addGuest($guestFirstname, $guestSurname, $guestAddress, $guestCity, $guestEmail, $guestPhone, $btnAddGuest, $mysqli);
 ?>
 
-
+<script type="text/javascript" src="add.js"></script>
 <?php
     require_once( "footer.php");
 ?> 
