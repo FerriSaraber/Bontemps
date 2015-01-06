@@ -6,7 +6,7 @@
 
 <div class="header">
     <div class="menupositie">
-        <form action="#">
+        <form action="add.php">
             <input type="submit" value="Reservering toevoegen">
         </form>
         <form action="#">
@@ -19,9 +19,15 @@
 </div>
 <hr>
 <div class="container">
-  <button>print rekening</button>
-  <textarea class="rekeningselectie" placeholder="voorbeeldnaam"></textarea>
+    <form action="#">
+    <textarea class="rekeningselectie" placeholder="voorbeeldnaam" id="rekening-selecteren"></textarea>
+        <input type="submit" value="print rekening">
+    </form>
+    <textfield id="menu-overzicht">
+        <h3>Menu overzichtje, wat heeft de gast gegeten en gedronken.</h3>
+    </textfield>
 </div>
+
 <?php
 	require_once( "footer.php");
 ?>
