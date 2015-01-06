@@ -12,7 +12,7 @@
         <form action="index.php">
             <input type="submit" value="Terug naar start">
         </form>
-        <form action="#">
+        <form action="menuwijzigen.php">
             <input type="submit" value="Menu aanpassen">
         </form>
     </div>
@@ -46,13 +46,19 @@
             <button type="submit" form="item-toevoegen" value="Submit">Toevoegen</button></fieldset>
             <form action="#" method="get" id="wijzig-aantal">
                 <label>Wijzig aantal personen: </label><input type="number" name="wijzig-aantal">
-                <label>Wijzig begintijd: </label><input type="number" name="wijzig-tijd">
+                <label>Wijzig begintijd: </label><input type="text" name="wijzig-tijd" placeholder="uu:mm">
             </form>
-            <div class="menu-item-overzicht">
-                
-            </div>
-                    
-            
+            <button type="submit" form="wijzig-aantal" value="Submit">Opslaan</button>
+        </div>
+        <div class="menu-item-overzicht">
+            <fieldset><legend><h3>Gewijzigde bestelling: </h3></legend>
+                <form action="#" method="get" id="gewijzigd-menu">
+                    <textarea>
+                    </textarea>
+                </form>
+                <button type="submit" form="gewijzigd-menu" value="Submit">Doorvoeren</button>
+                <button type="submit" form="gewijzigd-menu" value="Submit">Verwijderen</button>
+            </fieldset>
         </div>
     </div>
 </div>

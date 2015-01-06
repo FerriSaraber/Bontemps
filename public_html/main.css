@@ -386,12 +386,12 @@ hr{
     float:left;
     width: 400px;
     margin-left:50px;
-    margin-top:60px;
-    height:1000px;
+    height:600px;
     border-bottom: none;
     border-top:none;
     border-left:none;
     border-right: 1px solid #3B0B24;
+    padding-top:115px;
 }
 
 #aanpassen .linkerdiv textarea{
@@ -434,8 +434,7 @@ hr{
 }
 
 #aanpassen .geselecteerde-reservering{
-    text-align:right;
-    float:right;
+    text-align:center;
     clear:both;
     margin-top:20px;
     margin-right:50px;
@@ -498,3 +497,156 @@ hr{
     color: #FFFFFF;
     background-color: #6E6E6E;
 } 
+
+#aanpassen .menu-item-overzicht{
+    width:300px;
+    float:right;
+    margin-top: 60px;
+    margin-right:140px;
+}
+
+#aanpassen .menu-item-overzicht textarea{
+    width:205px;
+    float: left;
+    height:400px;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    font-size:15px;
+    resize: none;
+    clear: both;
+    position:relative;
+    border:1px solid #3B0B24;
+    outline:none;
+}
+
+#aanpassen .menu-item-overzicht button {
+    text-align: center;
+    width:100px;
+    height:30px;
+    margin-right:10px;
+    float: left;
+    margin-top:10px;
+    display:block;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: #FFFFFF;
+    background-color: #6E6E6E;
+}
+
+//========================================================================= Menu wijzigen=================================================
+
+#menuwijzigen{
+    position:relative;
+}
+
+#menuwijzigen .linkerding{
+    width:400px;
+    float:left;
+    margin-left:200px;
+}
+
+#menuwijzigen .linkerding textarea{
+    width:200px;
+    float: left;
+    margin-left: 50px;
+    height:300px;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    font-size:15px;
+    resize: none;
+    clear: both;
+    position:relative;
+    border:1px solid #3B0B24;
+    outline:none;
+}
+
+#menuwijzigen .linkerding button{
+    text-align: center;
+    width:100px;
+    height:30px;
+    margin-left:50px;
+    float: left;
+    margin-top:10px;
+    display:block;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: #FFFFFF;
+    background-color: #6E6E6E;
+}
+
+#menuwijzigen .linkerding label{
+    float:left;
+    margin-top:16px;
+    width:100px;
+    margin-right: 10px;
+    text-align: left;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+    color: #3B0B24;
+    font-size: 16px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px;   
+}
+
+#menuwijzigen .linkerding input{
+    float:left;
+    text-align: right;
+    margin-top:12px;
+    margin-bottom: 10px;
+    width:100px;  
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+    color: #3B0B24;
+    font-size: 16px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px; 
+}
+
+#menuwijzigen .rechterding{
+    float: left;
+    margin-left: 200px;
+    width: 300px;
+}
+
+#menuwijzigen .rechterding label{
+    float:left;
+    clear:both;
+    margin-top:16px;
+    width:100px;
+    margin-right: 10px;
+    text-align: left;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+    color: #3B0B24;
+    font-size: 16px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px;  
+}
+
+#menuwijzigen .rechterding input{
+    float:left;
+    text-align: right;
+    margin-top:12px;
+    margin-bottom: 10px;
+    width:100px;  
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+    color: #3B0B24;
+    font-size: 16px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px; 
+}
+
+#menuwijzigen .rechterding button{
+    text-align: center;
+    clear:both;
+    width:108px;
+    height:30px;
+    margin-left:110px;
+    float: left;
+    margin-top:10px;
+    display:block;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: #FFFFFF;
+    background-color: #6E6E6E;
+}
