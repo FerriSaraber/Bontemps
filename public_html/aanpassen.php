@@ -3,7 +3,6 @@
     require_once( "header.php");
 ?>
 <div></div>
-
 <div class="header">
     <div class="menupositie">
         <form action="add.php">
@@ -17,7 +16,6 @@
         </form>
     </div>
 </div>
-
 <hr>
 <div id="aanpassen">
     <div class="linkerdiv">
@@ -62,7 +60,6 @@
         </div>
     </div>
 </div>
-
 <?php
 	require_once( "footer.php");
 ?> 
