@@ -26,6 +26,44 @@ function searchGuest($name, $button, $mysqli)
         while($searchGuest = mysqli_fetch_array($searchGuests))
         {
             echo "<li><a href='#' data-id='$searchGuest[id]'>" . $searchGuest[voornaam] . " " .  $searchGuest[achternaam] . "</a></li>";
+        } 
+    }
+}
+
+function checkReserved($date, $time, $amount, $button, $mysqli)
+{
+    if(isset($button))
+    {
+        $time = strtotime($time);
+        $endTime = strtotime("$time + 2 hours");
+        $setAmount = 50;
+        $currentAmount = 0;
+
+        $searchGuestAmounts = $mysqli->query("SELECT aantal_personen FROM reserveringen WHERE tijd BETWEEN '$time' AND '$endTime'");
+        
+        while($searchGuestAmount = mysqli_fetch_array($searchGuestAmounts))
+        {
+            $currentAmount += $searchGuestAmount[aantal_personen];
+        } 
+        
+        echo "<script>alert('" . $currentAmount . "');</script>";
+      
+        if($currentAmount + $amount > $setAmount)
+        {
+            $place = false;
+        }
+        else
+        {
+            $place = true;
+        }
+        
+        if($place == false)
+        {
+            echo "<script>alert('Er is geen plaats meer op dit tijdstip');</script>";
+        }
+        else
+        {
+            echo "<script>alert('Datum en tijd geselecteerd');</script>";
         }
     }
 }
