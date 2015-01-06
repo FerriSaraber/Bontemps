@@ -261,6 +261,7 @@ hr{
     border-bottom: none;
     border-left:none;
     border-right:none;
+    margin-bottom:100px;
     
 }
 
@@ -352,4 +353,28 @@ hr{
 .bestellen textarea{
     width:300px;
     height:266px;
+}
+#add .left-button{
+    text-align: center;
+    width:107px;
+    height:30px;
+    float: left;
+    margin-top:10px;
+    //clear:both;
+    display:block;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: #FFFFFF;
+    background-color: #6E6E6E;
+}
+#add .right-button{
+    text-align: center;
+    width:107px;
+    height:30px;
+    float: right;
+    margin-top:10px;
+    //clear:both;
+    display:block;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: #FFFFFF;
+    background-color: #6E6E6E;
 }
