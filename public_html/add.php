@@ -38,7 +38,7 @@
             <label>Naam:</label> <input type="text" name="naam" required="true"><br>
         </form>
             <button type="submit" form="gast-zoeken" value="Submit">Zoek</button>
-        <textarea placeholder="Hier komen lekker namen, mmm">
+        <textarea placeholder="Hier komen lekker namen, mmmm">
         
         </textarea>
         </fieldset> 
