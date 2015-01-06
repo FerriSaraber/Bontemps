@@ -19,7 +19,7 @@
     </div>
 </div>
 <hr>
-<div class="container-add">
+<div class="container-add" id="add">
     <div class="gast-toevoegen">
         <fieldset><legend><h3>Gast toevoegen: </h3></legend>
         <form action="#" method="get" id="gast-toevoegen">
@@ -57,13 +57,13 @@
             </form>
                <button type="submit" form="reservering-toevoegen" value="Submit">Toevoegen</button></fieldset>
         </div>
-        <div class="bestellen">
+        <div class="bestellen" id="toevoegen">
             <fieldset><legend><h3>Reservering doorvoeren:   </h3></legend>
             <form class="reservering-plaatsen" id="reservering-plaatsen">
                 <textarea> </textarea>
             </form>
             <button class="right-button" type="submit" form="reservering-plaatsen" value="Submit">Plaatsen</button> 
-            <button type="left-button" form="reservering-plaatsen" value="delete">Verwijderen</button>  
+            <button class="left-button" type="submit" form="reservering-plaatsen" value="Submit">Verwijderen</button>  
             </fieldset>
         
         </div>
