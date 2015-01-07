@@ -43,7 +43,6 @@
                 </form>
             </fieldset>
             <form action="#" method="get" id="wijzig-aantal">
-                <label>Wijzig aantal personen: </label><input type="number" name="wijzig-aantal">
                 <label>Wijzig begintijd: </label><input type="text" name="wijzig-tijd" placeholder="uu:mm">
             </form>
             <button type="submit" form="wijzig-aantal" value="Submit">Opslaan</button>
