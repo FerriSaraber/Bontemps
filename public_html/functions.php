@@ -34,21 +34,50 @@ function checkReserved($date, $time, $amount, $button, $mysqli)
 {
     if(isset($button))
     {
-        $time = strtotime($time);
-        $endTime = strtotime("$time + 2 hours");
+        $guestID = $_POST['selectedGuest'];
+        $datetime = $time . $date;//string
+        
+        $datetimeStamp = strtotime($datetime);//timestamp
+        $endDatetimeStamp = strtotime("$datetime + 2 hours");//timestamp
+        $preDatetimeStamp = strtotime("$datetime - 2 hours");//timestamp
+        
+        $datetime = date("Y-m-d H:i:s", $datetimeStamp);//time
+        $endDatetime = date("Y-m-d H:i:s", $endDatetimeStamp);//time
+        $preDatetime = date("Y-m-d H:i:s", $preDatetimeStamp);//time
+                
         $setAmount = 50;
         $currentAmount = 0;
+        $preAmount = 0;
 
-        $searchGuestAmounts = $mysqli->query("SELECT aantal_personen FROM reserveringen WHERE tijd BETWEEN '$time' AND '$endTime'");
+        $searchGuestAmounts = $mysqli->query("SELECT aantal_personen FROM reserveringen WHERE datumtijd BETWEEN '$datetime' AND '$endDatetime'");
+        if ($searchGuestAmounts == false)
+        {
+            echo "Query mislukt. Foutmelding: " . $mysqli->error;
+            die;
+        }
         
         while($searchGuestAmount = mysqli_fetch_array($searchGuestAmounts))
         {
-            $currentAmount += $searchGuestAmount[aantal_personen];
+            $currentAmount = $currentAmount + $searchGuestAmount[aantal_personen];
         } 
         
+        $searchPreGuestAmounts = $mysqli->query("SELECT aantal_personen FROM reserveringen WHERE datumtijd BETWEEN '$preDatetime' AND '$datetime'");
+        if ($searchPreGuestAmounts == false)
+        {
+            echo "Query mislukt. Foutmelding: " . $mysqli->error;
+            die;
+        }
+        
+        while($searchPreGuestAmount = mysqli_fetch_array($searchPreGuestAmounts))
+        {
+            $preAmount = $preAmount + $searchPreGuestAmount[aantal_personen];
+        }
+        
+        echo "<script>alert('" . $datetime . "');</script>";
+        echo "<script>alert('" . $endDatetime . "');</script>";
         echo "<script>alert('" . $currentAmount . "');</script>";
       
-        if($currentAmount + $amount > $setAmount)
+        if($currentAmount + $amount > $setAmount || $preAmount + $amount > $setAmount)
         {
             $place = false;
         }
@@ -64,6 +93,12 @@ function checkReserved($date, $time, $amount, $button, $mysqli)
         else
         {
             echo "<script>alert('Datum en tijd geselecteerd');</script>";
+            $insertReservation = $mysqli->query("INSERT INTO reserveringen (id, klantid, datumtijd, aantal_personen) VALUES (NULL, '$guestID', '$datetime', '$amount')");
+            
+            if(!$insertReservation)
+            {
+                die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+            }
         }
     }
 }
