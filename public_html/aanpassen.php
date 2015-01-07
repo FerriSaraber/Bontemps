@@ -33,15 +33,15 @@
         <div class="menu-items-toevoegen">
             <fieldset><legend><h3>Menu items toevoegen: </h3></legend>
                 <form action="#" method="get" id="item-toevoegen">
-                    <label>Menu 1:</label> <input type="number" name="menu1">
-                    <label>Menu 2: </label> <input type="number" name="menu2">
-                    <label>Menu 3: </label> <input type="number" name="menu3">
-                    <label>Frisdrank: </label> <input type="number" name="frisdrank">
-                    <label>Bier: </label> <input type="number" name="bier">
-                    <label>Wijn: </label> <input type="number" name="wijn">
-                    <label>Koffie/Thee: </label> <input type="number" name="koffie">
+                    <button type="submit" form="item-toevoegen" value="Submit">Menu 1</button>
+                    <button type="submit" form="item-toevoegen" value="Submit">Menu 2</button>
+                    <button type="submit" form="item-toevoegen" value="Submit">Menu 3</button>
+                    <button type="submit" form="item-toevoegen" value="Submit">Fris</button>
+                    <button type="submit" form="item-toevoegen" value="Submit">Thee/koffie</button>
+                    <button type="submit" form="item-toevoegen" value="Submit">Bier</button>
+                    <button type="submit" form="item-toevoegen" value="Submit">Wijn</button>
                 </form>
-            <button type="submit" form="item-toevoegen" value="Submit">Toevoegen</button></fieldset>
+            </fieldset>
             <form action="#" method="get" id="wijzig-aantal">
                 <label>Wijzig aantal personen: </label><input type="number" name="wijzig-aantal">
                 <label>Wijzig begintijd: </label><input type="text" name="wijzig-tijd" placeholder="uu:mm">
