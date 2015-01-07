@@ -30,7 +30,7 @@ function searchGuest($name, $button, $mysqli)
     }
 }
 
-function checkReserved($date, $time, $amount, $button, $mysqli)
+function checkReserved($date, $time, $amount, $menu1, $menu2, $menu3, $button, $mysqli)
 {
     if(isset($button))
     {
@@ -72,10 +72,6 @@ function checkReserved($date, $time, $amount, $button, $mysqli)
         {
             $preAmount = $preAmount + $searchPreGuestAmount[aantal_personen];
         }
-        
-        echo "<script>alert('" . $datetime . "');</script>";
-        echo "<script>alert('" . $endDatetime . "');</script>";
-        echo "<script>alert('" . $currentAmount . "');</script>";
       
         if($currentAmount + $amount > $setAmount || $preAmount + $amount > $setAmount)
         {
@@ -95,10 +91,29 @@ function checkReserved($date, $time, $amount, $button, $mysqli)
             echo "<script>alert('Datum en tijd geselecteerd');</script>";
             $insertReservation = $mysqli->query("INSERT INTO reserveringen (id, klantid, datumtijd, aantal_personen) VALUES (NULL, '$guestID', '$datetime', '$amount')");
             
-            if(!$insertReservation)
+            if($insertReservation)
+            {
+                $reservationID = $mysqli->insert_id;
+            }
+            else
             {
                 die('Error : ('. $mysqli->errno .') '. $mysqli->error);
             }
+        }
+        
+        for($i = 0; $i < $menu1; $i++)
+        {
+            $insertMenu1 = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$guestID', '$reservationID')");
+        }
+        
+        for($i = 0; $i < $menu2; $i++)
+        {
+            $insertMenu2 = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$guestID', '$reservationID')");
+        }
+        
+        for($i = 0; $i < $menu3; $i++)
+        {
+            $insertMenu3 = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$guestID', '$reservationID')");
         }
     }
 }

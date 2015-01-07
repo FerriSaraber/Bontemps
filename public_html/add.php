@@ -48,35 +48,23 @@
         </fieldset> 
     </div>
     <div class="gevonden-gast">
-        <h3 class="left">Geselecteerde gast: <span class="left-span" id="lblSelectedGuest">Geen</span></h3><h3 class="right"> Stoelen beschikbaar: <span class="right-span">123</span></h3>
+        <h3 class="left">Geselecteerde gast: <span class="left-span" id="lblSelectedGuest">Geen</span></h3>
         <div class="toevoegen"><fieldset><legend><h3>Reservering toevoegen:   </h3></legend>
             <form class="reservering-toevoegen" action="" method="post" id="reservering-toevoegen1">
                 <label>Datum: </label> <input type="date" name="datum" required="true" placeholder="DD/MM/JJJJ" value="<?php echo $_POST[datum]; ?>">
                 <label>Tijd: </label> <input type="time" name="tijd" required="true" placeholder="UU:MM" value="<?php echo $_POST[tijd]; ?>">
                 <label>Aantal personen: </label> <input type="number" name="personen" value="<?php echo $_POST[personen]; ?>">
                 <input type="hidden" name="selectedGuest" id="selectedGuest">
-            </form>
-            <button type="submit" form="reservering-toevoegen1" value="Submit" name="btnCheckSpots">Kies</button>
-            
-            <form class="reservering-toevoegen" action="" method="post" id="reservering-toevoegen2">
                 <label class="menu1">Menu 1</label> <input type="number" name="menu1">
                 <label class="menu2">Menu 2</label> <input type="number" name="menu2">
                 <label class="menu3">Menu 3</label> <input type="number" name="menu3">
             </form>
-            <button type="submit" form="reservering-toevoegen2" value="Submit">Toevoegen</button></fieldset>
+            <button type="submit" form="reservering-toevoegen1" value="Submit" name="btnCheckSpots">Reservering toevoegen</button>
+            </fieldset>
             
         </div>
-        <div class="bestellen" id="toevoegen">
-            <fieldset><legend><h3>Reservering doorvoeren:   </h3></legend>
-            <form class="reservering-plaatsen" id="reservering-plaatsen">
-                <textarea> </textarea>
-            </form>
-            <button class="right-button" type="submit" form="reservering-plaatsen" value="Submit">Plaatsen</button> 
-            <button class="left-button" type="submit" form="reservering-plaatsen" value="Submit">Verwijderen</button>  
-            </fieldset>
-        
-        </div>
-        </div> 
+    </div>
+</div> 
 
 </div>
 </div>
@@ -93,12 +81,16 @@ $btnAddGuest = $_POST['btnAddGuest'];
 $reservationDate = $mysqli->real_escape_string($_POST[datum]);
 $reservationTime = $mysqli->real_escape_string($_POST[tijd]);
 $reservationAmount = $mysqli->real_escape_string($_POST[personen]);
+$menuOneAmount = $mysqli->real_escape_string($_POST[menu1]);
+$menuTwoAmount = $mysqli->real_escape_string($_POST[menu2]);
+$menuThreeAmount = $mysqli->real_escape_string($_POST[menu3]);
 $btnCheckSpots = $_POST['btnCheckSpots'];
+
 
 
 //call functions
 addGuest($guestFirstname, $guestSurname, $guestAddress, $guestCity, $guestEmail, $guestPhone, $btnAddGuest, $mysqli);
-checkReserved($reservationDate, $reservationTime, $reservationAmount, $btnCheckSpots, $mysqli);
+checkReserved($reservationDate, $reservationTime, $reservationAmount, $menuOneAmount, $menuTwoAmount, $menuThreeAmount, $btnCheckSpots, $mysqli);
 ?>
 
 <script type="text/javascript" src="add.js"></script>
