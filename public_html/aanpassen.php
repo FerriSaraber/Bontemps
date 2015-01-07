@@ -42,7 +42,6 @@
                     <button type="submit" form="item-toevoegen" value="Submit">Wijn</button>
                 </form>
             </fieldset>
-            <button type="submit" form="wijzig-aantal" value="Submit">Opslaan</button>
         </div>
         <div class="menu-item-overzicht">
             <fieldset><legend><h3>Gewijzigde bestelling: </h3></legend>
