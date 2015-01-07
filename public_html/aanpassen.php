@@ -42,9 +42,6 @@
                     <button type="submit" form="item-toevoegen" value="Submit">Wijn</button>
                 </form>
             </fieldset>
-            <form action="#" method="get" id="wijzig-aantal">
-                <label>Wijzig begintijd: </label><input type="text" name="wijzig-tijd" placeholder="uu:mm">
-            </form>
             <button type="submit" form="wijzig-aantal" value="Submit">Opslaan</button>
         </div>
         <div class="menu-item-overzicht">
