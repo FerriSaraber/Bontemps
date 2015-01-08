@@ -34,18 +34,16 @@
         </fieldset>
     </div>
     <div class="rechterdiv">
-        <h3 class="geselecteerde-reservering">Geselecteerde reservering: <span class="geselecteerde-gast" id="lblSelectedReservation">Geen</span></h3>
+        <h3 class="geselecteerde-reservering">Geselecteerde reservering: <span class="geselecteerde-gast" id="lblSelectedReservation" >Geen</span></h3>
         <div class="menu-items-toevoegen">
             <fieldset><legend><h3>Menu items toevoegen: </h3></legend>
-                <form action="" method="post" id="item-toevoegen">
-                </form>
-                <button type="submit" form="item-toevoegen" value="Submit" name="btnMenu1">Menu 1</button>
-                <button type="submit" form="item-toevoegen" value="Submit" name="btnMenu2">Menu 2</button>
-                <button type="submit" form="item-toevoegen" value="Submit" name="btnMenu3">Menu 3</button>
-                <button type="submit" form="item-toevoegen" value="Submit" name="btnFris">Frisdrank</button>
-                <button type="submit" form="item-toevoegen" value="Submit" name="btnTheeKoffie">Thee/koffie</button>
-                <button type="submit" form="item-toevoegen" value="Submit" name="btnBier">Bier</button>
-                <button type="submit" form="item-toevoegen" value="Submit" name="btnWijn">Wijn</button>
+                <button type="submit" form="toon-bestelling" value="Submit" name="btnMenu1">Menu 1</button>
+                <button type="submit" form="toon-bestelling" value="Submit" name="btnMenu2">Menu 2</button>
+                <button type="submit" form="toon-bestelling" value="Submit" name="btnMenu3">Menu 3</button>
+                <button type="submit" form="toon-bestelling" value="Submit" name="btnFris">Frisdrank</button>
+                <button type="submit" form="toon-bestelling" value="Submit" name="btnTheeKoffie">Thee/koffie</button>
+                <button type="submit" form="toon-bestelling" value="Submit" name="btnBier">Bier</button>
+                <button type="submit" form="toon-bestelling" value="Submit" name="btnWijn">Wijn</button>
             </fieldset>
         </div>
         <div class="menu-item-overzicht">
@@ -77,7 +75,7 @@ $btnWijn = $_POST[btnWijn];
 
 
 //Call methods
-addItem($_POST[selectedReservation], $btnMenu1, $btnMenu2, $btnMenu3, $btnFris, $btnTheeKoffie, $btnBier, $btnWijn, $mysqli)
+addItem($reservationID, $btnMenu1, $btnMenu2, $btnMenu3, $btnFris, $btnTheeKoffie, $btnBier, $btnWijn, $mysqli)
 
 ?>
 
