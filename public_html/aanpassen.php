@@ -37,21 +37,21 @@
         <h3 class="geselecteerde-reservering">Geselecteerde reservering: <span class="geselecteerde-gast" id="lblSelectedReservation">Geen</span></h3>
         <div class="menu-items-toevoegen">
             <fieldset><legend><h3>Menu items toevoegen: </h3></legend>
-                <form action="" method="get" id="item-toevoegen">
-                    <button type="submit" form="item-toevoegen" value="Submit">Menu 1</button>
-                    <button type="submit" form="item-toevoegen" value="Submit">Menu 2</button>
-                    <button type="submit" form="item-toevoegen" value="Submit">Menu 3</button>
-                    <button type="submit" form="item-toevoegen" value="Submit">Fris</button>
-                    <button type="submit" form="item-toevoegen" value="Submit">Thee/koffie</button>
-                    <button type="submit" form="item-toevoegen" value="Submit">Bier</button>
-                    <button type="submit" form="item-toevoegen" value="Submit">Wijn</button>
+                <form action="" method="post" id="item-toevoegen">
                 </form>
+                <button type="submit" form="item-toevoegen" value="Submit" name="btnMenu1">Menu 1</button>
+                <button type="submit" form="item-toevoegen" value="Submit" name="btnMenu2">Menu 2</button>
+                <button type="submit" form="item-toevoegen" value="Submit" name="btnMenu3">Menu 3</button>
+                <button type="submit" form="item-toevoegen" value="Submit" name="btnFris">Frisdrank</button>
+                <button type="submit" form="item-toevoegen" value="Submit" name="btnTheeKoffie">Thee/koffie</button>
+                <button type="submit" form="item-toevoegen" value="Submit" name="btnBier">Bier</button>
+                <button type="submit" form="item-toevoegen" value="Submit" name="btnWijn">Wijn</button>
             </fieldset>
         </div>
         <div class="menu-item-overzicht">
             <fieldset><legend><h3>Bestelling: </h3></legend>
                 <form action="" method="post" id="toon-bestelling">
-                    <input type="hidden" name="selectedReservation" id="selectedReservation">
+                    <input type="hidden" name="selectedReservation" id="selectedReservation" value="<?php echo $_POST[selectedReservation]; ?>">
                 </form>
                 <button type="submit" form="toon-bestelling" value="Submit" name="btnShowOrder">Toon bestelling</button>
                 <ul>
@@ -59,7 +59,6 @@
                     $reservationID = $_POST[selectedReservation];
                     $btnShowOrder = $_POST[btnShowOrder];
                     showOrderedItems($reservationID, $btnShowOrder, $mysqli);
-                    echo "<script>alert($reservationID);</script>";
                     ?>
                 </ul>
             </fieldset>
@@ -68,11 +67,17 @@
 </div>
 <?php
 //Declare variables
-
+$btnMenu1 = $_POST[btnMenu1];
+$btnMenu2 = $_POST[btnMenu2];
+$btnMenu3 = $_POST[btnMenu3];
+$btnFris = $_POST[btnFris];
+$btnTheeKoffie = $_POST[btnTheeKoffie];
+$btnBier = $_POST[btnBier];
+$btnWijn = $_POST[btnWijn];
 
 
 //Call methods
-
+addItem($_POST[selectedReservation], $btnMenu1, $btnMenu2, $btnMenu3, $btnFris, $btnTheeKoffie, $btnBier, $btnWijn, $mysqli)
 
 ?>
 

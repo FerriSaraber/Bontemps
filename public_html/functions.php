@@ -205,9 +205,90 @@ function showOrderedItems($reservationID, $button, $mysqli)
                 }
                 while($getDrinkname = mysqli_fetch_array($getDrinknames))
                 {
-                    echo "<li><a href='#' data-id='$orderedMDrinkID'>" . $getDrinkname[naam] . "</a></li>";
+                    echo "<li><a href='#' data-id='$orderedDrinkID'>" . $getDrinkname[naam] . "</a></li>";
                 }
             }
+        }
+    }
+}
+
+function addItem($reservationID, $button1, $button2, $button3, $button4, $button5, $button6, $button7, $mysqli)
+{
+    if(isset($button1))
+    {
+        if($reservationID)
+        {
+            $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$reservationID', 1)");    
+        }
+        else
+        {
+            echo "<script>alert('Er is geen reservering geselecteerd');</script>";
+        }
+    }    
+    else if(isset($button2))
+    {
+        if($reservationID)
+        {
+            $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$reservationID', 2)");
+        }
+        else
+        {
+            echo "<script>alert('Er is geen reservering geselecteerd');</script>";
+        }
+    }
+    else if(isset($button3))
+    {
+        if($reservationID)
+        {
+            $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$reservationID', 3)");
+        }
+        else
+        {
+            echo "<script>alert('Er is geen reservering geselecteerd');</script>";
+        }
+    }        
+    else if(isset($button4))
+    {
+        if($reservationID)
+        {
+            $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_drankenid) VALUES (NULL, '$reservationID', 1)");
+        }
+        else
+        {
+            echo "<script>alert('Er is geen reservering geselecteerd');</script>";
+        }
+    }
+    else if(isset($button5))
+    {
+        if($reservationID)
+        {
+            $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_drankenid) VALUES (NULL, '$reservationID', 2)");
+        }
+        else
+        {
+            echo "<script>alert('Er is geen reservering geselecteerd');</script>";
+        }
+    }
+    else if(isset($button6))
+    {
+        if($reservationID)
+        {
+            $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_drankenid) VALUES (NULL, '$reservationID', 3)");
+        }
+        else
+        {
+            echo "<script>alert('Er is geen reservering geselecteerd');</script>";
+        }
+    }
+    else if(isset($button7))
+    {
+        if($reservationID)
+        {
+            $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_drankenid) VALUES (NULL, '$reservationID', 4)");
+        }
+        else
+        {
+            echo "<script>alert('Er is geen reservering geselecteerd');</script>";
         }
     }
 }
