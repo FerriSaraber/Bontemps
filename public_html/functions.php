@@ -75,20 +75,16 @@ function checkReserved($date, $time, $amount, $menu1, $menu2, $menu3, $button, $
       
         if($currentAmount + $amount > $setAmount || $preAmount + $amount > $setAmount)
         {
-            $place = false;
-        }
-        else
-        {
-            $place = true;
-        }
-        
-        if($place == false)
-        {
             echo "<script>alert('Er is geen plaats meer op dit tijdstip');</script>";
         }
+        else if($guestID == "")
+        {
+            echo "<script>alert('Er is geen gast geselecteerd');</script>";
+        }
         else
         {
-            echo "<script>alert('Datum en tijd geselecteerd');</script>";
+            echo "<script>alert('Reservering geplaatst');</script>";
+            sleep ( 2 );
             $insertReservation = $mysqli->query("INSERT INTO reserveringen (id, klantid, datumtijd, aantal_personen) VALUES (NULL, '$guestID', '$datetime', '$amount')");
             
             if($insertReservation)
@@ -99,21 +95,24 @@ function checkReserved($date, $time, $amount, $menu1, $menu2, $menu3, $button, $
             {
                 die('Error : ('. $mysqli->errno .') '. $mysqli->error);
             }
-        }
-        
-        for($i = 0; $i < $menu1; $i++)
-        {
-            $insertMenu1 = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$guestID', '$reservationID')");
-        }
-        
-        for($i = 0; $i < $menu2; $i++)
-        {
-            $insertMenu2 = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$guestID', '$reservationID')");
-        }
-        
-        for($i = 0; $i < $menu3; $i++)
-        {
-            $insertMenu3 = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$guestID', '$reservationID')");
+            
+            for($i = 0; $i < $menu1; $i++)
+            {
+                $insertMenu1 = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$reservationID', 1)");
+            }
+
+            for($i = 0; $i < $menu2; $i++)
+            {
+                $insertMenu2 = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$reservationID', 2)");
+            }
+
+            for($i = 0; $i < $menu3; $i++)
+            {
+                $insertMenu3 = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$reservationID', 3)");
+            }
+
+            header("Location: index.php");
+            die();
         }
     }
 }
