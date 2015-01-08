@@ -9,10 +9,10 @@
         <form action="add.php">
             <input type="submit" value="Reservering toevoegen">
         </form>
-        <form action="#">
+        <form action="aanpassen.php">
             <input type="submit" value="Reservering aanpassen">
         </form>
-        <form action="#">
+        <form action="menuwijzigen.php">
             <input type="submit" value="Menu aanpassen">
         </form>
     </div>

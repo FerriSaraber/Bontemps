@@ -195,8 +195,8 @@ hr{
 
 .gast-zoeken{
     width: 400px;
-    margin-right: 290px;
-    float:right;
+    margin-left: 290px;
+    float:left;
     //height: 600px;
 }
 
@@ -376,6 +376,32 @@ hr{
     font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
     color: #FFFFFF;
     background-color: #6E6E6E;
+}
+
+.gast-zoeken ul a{
+    float:left;
+    margin-top:10px;
+    //width:140px;
+    //text-align: left;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+    color: #3B0B24;
+    font-size: 14px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px;
+    text-decoration: none;
+}
+
+.gast-zoeken ul{
+    list-style-type:none;
+    float:right;    
+    clear:both;
+    margin-right:100px;
+}
+
+.gast-zoeken ul a:hover{
+    font-weight:700;
 }
 //====================================================================== Reservering wijzigen=================================================================
 
