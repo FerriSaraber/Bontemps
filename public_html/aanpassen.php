@@ -21,9 +21,7 @@
     <div class="linkerdiv">
         <fieldset><legend><h3>Selecteer een reservering: </h3></legend>
             <form action="#" id="selecteer-reservering" method="get">
-            <textarea>
-
-            </textarea>
+                
             </form>
             <button type="submit" form="selecteer-reservering" value="Submit">Selecteer</button>
         </fieldset>

@@ -51,9 +51,9 @@
         <h3 class="left">Geselecteerde gast: <span class="left-span" id="lblSelectedGuest">Geen</span></h3>
         <div class="toevoegen"><fieldset><legend><h3>Reservering toevoegen:   </h3></legend>
             <form class="reservering-toevoegen" action="" method="post" id="reservering-toevoegen">
-                <label>Datum: </label> <input type="date" name="datum" required="true" placeholder="DD/MM/JJJJ" value="<?php echo $_POST[datum]; ?>">
-                <label>Tijd: </label> <input type="time" name="tijd" required="true" placeholder="UU:MM" value="<?php echo $_POST[tijd]; ?>">
-                <label>Aantal personen: </label> <input type="number" required="true" name="personen" value="<?php echo $_POST[personen]; ?>">
+                <label>Datum: </label> <input type="date" name="datum" required="true" placeholder="DD/MM/JJJJ">">
+                <label>Tijd: </label> <input type="time" name="tijd" required="true" placeholder="UU:MM">
+                <label>Aantal personen: </label> <input type="number" required="true" name="personen">
                 <input type="hidden" name="selectedGuest" id="selectedGuest">
                 <label class="menu1">Menu 1</label> <input type="number" name="menu1">
                 <label class="menu2">Menu 2</label> <input type="number" name="menu2">
