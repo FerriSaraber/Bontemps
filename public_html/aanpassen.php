@@ -34,10 +34,10 @@
         </fieldset>
     </div>
     <div class="rechterdiv">
-    <h3 class="geselecteerde-reservering">Geselecteerde reservering: <span class="geselecteerde-gast">Super Sanne</span></h3>
+        <h3 class="geselecteerde-reservering">Geselecteerde reservering: <span class="geselecteerde-gast" id="lblSelectedReservation">Geen</span></h3>
         <div class="menu-items-toevoegen">
             <fieldset><legend><h3>Menu items toevoegen: </h3></legend>
-                <form action="#" method="get" id="item-toevoegen">
+                <form action="" method="get" id="item-toevoegen">
                     <button type="submit" form="item-toevoegen" value="Submit">Menu 1</button>
                     <button type="submit" form="item-toevoegen" value="Submit">Menu 2</button>
                     <button type="submit" form="item-toevoegen" value="Submit">Menu 3</button>
@@ -49,13 +49,19 @@
             </fieldset>
         </div>
         <div class="menu-item-overzicht">
-            <fieldset><legend><h3>Gewijzigde bestelling: </h3></legend>
-                <form action="#" method="get" id="gewijzigd-menu">
-                    <textarea>
-                    </textarea>
+            <fieldset><legend><h3>Bestelling: </h3></legend>
+                <form action="" method="post" id="toon-bestelling">
+                    <input type="hidden" name="selectedReservation" id="selectedReservation">
                 </form>
-                <button type="submit" form="gewijzigd-menu" value="Submit">Doorvoeren</button>
-                <button type="submit" form="gewijzigd-menu" value="Submit">Verwijderen</button>
+                <button type="submit" form="toon-bestelling" value="Submit" name="btnShowOrder">Toon bestelling</button>
+                <ul>
+                    <?php
+                    $reservationID = $_POST[selectedReservation];
+                    $btnShowOrder = $_POST[btnShowOrder];
+                    showOrderedItems($reservationID, $btnShowOrder, $mysqli);
+                    echo "<script>alert($reservationID);</script>";
+                    ?>
+                </ul>
             </fieldset>
         </div>
     </div>
@@ -70,6 +76,7 @@
 
 ?>
 
+<script type="text/javascript" src="aanpassen.js"></script>
 <?php
 	require_once( "footer.php");
 ?> 

@@ -128,7 +128,7 @@ function searchDate($date, $button, $mysqli)
         $endDate = date("Y-m-d H:i:s", $endDatestamp);
         
         
-        $getReservations = $mysqli->query("SELECT klantid FROM reserveringen WHERE datumtijd BETWEEN '$date' AND '$endDate'");
+        $getReservations = $mysqli->query("SELECT klantid, id FROM reserveringen WHERE datumtijd BETWEEN '$date' AND '$endDate'");
         if ($getReservations == false)
         {
             echo "Query mislukt. Foutmelding: " . $mysqli->error;
@@ -136,7 +136,8 @@ function searchDate($date, $button, $mysqli)
         }
         while($getReservation = mysqli_fetch_array($getReservations))
         {
-            $klantID = $getReservation[klantID];
+            $klantID = $getReservation[klantid];
+            $reservationID = $getReservation[id];
             
             $getGuests = $mysqli->query("SELECT voornaam, achternaam FROM klanten WHERE id = '$klantID'");
             if ($getGuests == false)
@@ -146,10 +147,71 @@ function searchDate($date, $button, $mysqli)
             }
             while($getGuest = mysqli_fetch_array($getGuests))
             {
-                echo "<li><a href='#' data-id='$klantID'>" . $getGuest[voornaam] . " " .  $getGuest[achternaam] . "</a></li>";
+                echo "<li><a href='#' data-id='$reservationID'>" . $getGuest[voornaam] . " " .  $getGuest[achternaam] . "</a></li>";
             }
         }
     }
 }
+
+function showOrderedItems($reservationID, $button, $mysqli)
+{
+    if(isset($button))
+    {
+        if($reservationID == "")
+        {
+            echo "<script>alert('Er is geen reservering geselecteerd');</script>";
+        }
+        else
+        {
+            echo "<li>Bestelde menu's:</li>";
+            $getMenuIDs = $mysqli->query("SELECT bestelde_gerechtenid FROM bestellingen WHERE reserveringid = '$reservationID'");
+            if ($getMenuIDs == false)
+            {
+                echo "Query mislukt. Foutmelding: " . $mysqli->error;
+                die;
+            }
+            while($getMenuID = mysqli_fetch_array($getMenuIDs))
+            {
+                $orderedMenuID = $getMenuID[bestelde_gerechtenid];
+
+                $getMenunames = $mysqli->query("SELECT naam FROM menu_lijst WHERE id = '$orderedMenuID'");
+                if($getMenunames == FALSE)
+                {
+                    echo "Query mislukt. Foutmelding: " . $mysqli->error;
+                    die();
+                }
+                while($getMenuname = mysqli_fetch_array($getMenunames))
+                {
+                    echo "<li><a href='#' data-id='$orderedMenuID'>" . $getMenuname[naam] . "</a></li>";
+                }
+            }
+
+            echo "<li>Bestelde dranken:</li>";
+            $getDrinkIDs = $mysqli->query("SELECT bestelde_drankenid FROM bestellingen WHERE reserveringid = '$reservationID'");
+            if ($getDrinkIDs == false)
+            {
+                echo "Query mislukt. Foutmelding: " . $mysqli->error;
+                die;
+            }
+            while($getDrinkID = mysqli_fetch_array($getDrinkIDs))
+            {
+                $orderedDrinkID = $getDrinkID[bestelde_drankenid];
+
+                $getDrinknames = $mysqli->query("SELECT naam FROM dranken_lijst WHERE id = '$orderedDrinkID'");
+                if($getDrinknames == FALSE)
+                {
+                    echo "Query mislukt. Foutmelding: " . $mysqli->error;
+                    die();
+                }
+                while($getDrinkname = mysqli_fetch_array($getDrinknames))
+                {
+                    echo "<li><a href='#' data-id='$orderedMDrinkID'>" . $getDrinkname[naam] . "</a></li>";
+                }
+            }
+        }
+    }
+}
+
+
 
 ?> 
