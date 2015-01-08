@@ -117,4 +117,39 @@ function checkReserved($date, $time, $amount, $menu1, $menu2, $menu3, $button, $
     }
 }
 
+function searchDate($date, $button, $mysqli)
+{
+    if(isset($button))
+    {
+        $datestamp = strtotime($date);
+        $date = date("Y-m-d H:i:s", $datestamp);
+        
+        $endDatestamp = strtotime("$date + 23 hours" );
+        $endDate = date("Y-m-d H:i:s", $endDatestamp);
+        
+        
+        $getReservations = $mysqli->query("SELECT klantid FROM reserveringen WHERE datumtijd BETWEEN '$date' AND '$endDate'");
+        if ($getReservations == false)
+        {
+            echo "Query mislukt. Foutmelding: " . $mysqli->error;
+            die;
+        }
+        while($getReservation = mysqli_fetch_array($getReservations))
+        {
+            $klantID = $getReservation[klantID];
+            
+            $getGuests = $mysqli->query("SELECT voornaam, achternaam FROM klanten WHERE id = '$klantID'");
+            if ($getGuests == false)
+            {
+                echo "Query mislukt. Foutmelding: " . $mysqli->error;
+                die;
+            }
+            while($getGuest = mysqli_fetch_array($getGuests))
+            {
+                echo "<li><a href='#' data-id='$klantID'>" . $getGuest[voornaam] . " " .  $getGuest[achternaam] . "</a></li>";
+            }
+        }
+    }
+}
+
 ?> 

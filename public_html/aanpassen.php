@@ -20,10 +20,17 @@
 <div id="aanpassen">
     <div class="linkerdiv">
         <fieldset><legend><h3>Selecteer een reservering: </h3></legend>
-            <form action="#" id="selecteer-reservering" method="get">
-                
+            <form action="" id="selecteer-reservering" method="post">
+                <label>Datum: </label><input type="date" name="datum" required="true" placeholder="DD/MM/JJJJ">
             </form>
-            <button type="submit" form="selecteer-reservering" value="Submit">Selecteer</button>
+            <button type="submit" form="selecteer-reservering" value="Submit" name="btnSelectDate">Selecteer</button>
+            <ul>
+                <?php
+                $selectedDay =  $mysqli->real_escape_string($_POST[datum]);
+                $btnSelectDate = $_POST[btnSelectDate];
+                searchDate($selectedDay, $btnSelectDate, $mysqli);
+                ?>
+            </ul>
         </fieldset>
     </div>
     <div class="rechterdiv">
@@ -53,6 +60,16 @@
         </div>
     </div>
 </div>
+<?php
+//Declare variables
+
+
+
+//Call methods
+
+
+?>
+
 <?php
 	require_once( "footer.php");
 ?> 
