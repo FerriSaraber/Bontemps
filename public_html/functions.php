@@ -299,4 +299,12 @@ function changeMenu($menuID, $name, $discription, $price, $button, $mysqli)
     }
 }
 
+function deleteCookie($button)
+{
+    if(isset($button))
+    {
+        unset($_COOKIE[reservering]);
+    }
+}
+
 ?> 
