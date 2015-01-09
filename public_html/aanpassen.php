@@ -6,18 +6,18 @@
 <div></div>
 <div class="header">
     <div class="menupositie">
-        <form action="add.php">
-            <button name="btnToevoegen" type="submit" >Reservering toevoegen</button>
-            <?php deleteCookie($_POST[btnToevoegen]) ?>
+        <form action="add.php" method="post">
+            <button name="btnToevoegen" type="submit" >Reservering toevoegen</button>            
         </form>
-        <form action="index.php">
-            <button name="btnStart" type="submit" > Terug naar start</button>
-            <?php deleteCookie($_POST[btnStart]) ?>
+        <?php deleteCookie($_POST[btnToevoegen]) ?>
+        <form action="index.php" method="post">
+            <button name="btnStart" type="submit" > Terug naar start</button>            
         </form>
-        <form action="menuwijzigen.php">
-            <button name="btnAanpassen" type="submit" >Menu aanpassen</button>
-            <?php deleteCookie($_POST[btnAanpassen]) ?>
+        <?php deleteCookie($_POST[btnStart]) ?>
+        <form action="menuwijzigen.php" method="post">
+            <button name="btnAanpassen" type="submit" >Menu aanpassen</button>            
         </form>
+        <?php deleteCookie($_POST[btnAanpassen]) ?>
     </div>
 </div>
 <hr>
