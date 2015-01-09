@@ -1,15 +1,22 @@
 <?php
     require_once("config.php");
     require_once( "header.php");
-    
+    session_start();
 ?>
 <div></div>
 <div class="header">
     <div class="menupositie">
-        <a href="" id="toevoegen">Reservering toevoegen</a>
-        <a href="index.php" id="index">Terug naar start</a>
-        <a href="menuwijzigen.php" id="wijzigen">Menu aanpassen</a>
-       
+        <form action="add.php">
+            <input name="btnToevoegen" type="submit" value="Reservering toevoegen">       
+        </form>
+
+        <form action="index.php" method="post">
+            <input name="btnStart" type="submit" value="Terug naar start">
+        </form>
+
+        <form action="menuwijzigen.php" method="post">
+            <input name="btnMenu" type="submit" value="Menu aanpassen">           
+        </form>
     </div>
 </div>
 <hr>
@@ -32,9 +39,9 @@
     <div class="rechterdiv">
         <h3 class="geselecteerde-reservering">Geselecteerde reservering: <span class="geselecteerde-gast" id="lblSelectedReservation" >
             <?php 
-            if(isset($_COOKIE[reservering]))
+            if(isset($_SESSION[reservering]))
             {
-                echo $_COOKIE[reservering];
+                echo $_SESSION[reservering];
             }
             else
             {

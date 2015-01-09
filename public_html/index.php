@@ -11,12 +11,12 @@
             <input name="btnToevoegen" type="submit" value="Reservering toevoegen">       
         </form>
 
-        <form action="index.php" method="post">
-            <input name="btnStart" type="submit" value="Terug naar start">
+        <form action="aanpassen.php" method="post">
+            <input name="btnReservering" type="submit" value="Reservering wijzigen">
         </form>
 
         <form action="menuwijzigen.php" method="post">
-            <input name="btnAanpassen" type="submit" value="Menu aanpassen">           
+            <input name="btnMenu" type="submit" value="Menu aanpassen">           
         </form>
     </div>
 </div>
