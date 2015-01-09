@@ -7,15 +7,15 @@
 <div class="header">
     <div class="menupositie">
         <form action="add.php">
-            <input name="btnToevoegen" type="submit" >Reservering toevoegen</button>            
+            <input name="btnToevoegen" type="submit" value="Reservering toevoegen">       
         </form>
 
         <form action="index.php" method="post">
-            <input name="btnStart" type="submit" > Terug naar start</button>            
+            <input name="btnStart" type="submit" value="Terug naar start">
         </form>
 
         <form action="menuwijzigen.php" method="post">
-            <input name="btnAanpassen" type="submit" >Menu aanpassen</button>            
+            <input name="btnAanpassen" type="submit" value="Menu aanpassen">           
         </form>
     </div>
 </div>
