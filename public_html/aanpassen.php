@@ -1,7 +1,6 @@
 <?php
     require_once("config.php");
     require_once( "header.php");
-    session_start();
 ?>
 <div></div>
 <div class="header">
@@ -39,9 +38,9 @@
     <div class="rechterdiv">
         <h3 class="geselecteerde-reservering">Geselecteerde reservering: <span class="geselecteerde-gast" id="lblSelectedReservation" >
             <?php 
-            if(isset($_SESSION[reservering]))
+            if(isset($_COOKIE[reservering]))
             {
-                echo $_SESSION[reservering];
+                echo $_COOKIE[reservering];
             }
             else
             {
