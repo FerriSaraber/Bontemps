@@ -110,9 +110,6 @@ function checkReserved($date, $time, $amount, $menu1, $menu2, $menu3, $button, $
             {
                 $insertMenu3 = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$reservationID', 3)");
             }
-
-            header("Location: index.php");
-            die();
         }
     }
 }
