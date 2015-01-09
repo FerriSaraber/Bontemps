@@ -21,8 +21,11 @@
     <div class="linkerding">
         <fieldset><legend><h3>Menu items wijzigen: </h3></legend>
             <form action="#" method="get" id="menu-item-wijzigen">
-                <textarea>
-                </textarea>
+                <select>
+                    <option data-id="1">Menu 1</option>
+                    <option data-id="2">Menu 2</option>
+                    <option data-id="3">Menu 3</option>
+                </select>
             </form>
         <button type="submit" form="menu-item-wijzigen" value="Submit">Verwijder</button></fieldset>
         <form action="#" method="get" id="wijzig-item-prijs">
