@@ -8,13 +8,15 @@
 <div class="header">
     <div class="menupositie">
         <form action="add.php">
-            <input type="submit" value="Reservering toevoegen">
+            <input name="btnToevoegen" type="submit" value="Reservering toevoegen">       
         </form>
-        <form action="aanpassen.php">
-            <input type="submit" value="Reservering aanpassen">
+
+        <form action="index.php" method="post">
+            <input name="btnStart" type="submit" value="Terug naar start">
         </form>
-        <form action="menuwijzigen.php">
-            <input type="submit" value="Menu aanpassen">
+
+        <form action="menuwijzigen.php" method="post">
+            <input name="btnAanpassen" type="submit" value="Menu aanpassen">           
         </form>
     </div>
 </div>
