@@ -299,13 +299,5 @@ function changeMenu($menuID, $name, $discription, $price, $button, $mysqli)
     }
 }
 
-function deleteCookie($button)
-{
-    if(isset($button))
-    {
-        echo "<script>alert('Test');</script>";
-        setcookie('reservering', ' ', time()-3600);
-    }
-}
 
 ?> 
