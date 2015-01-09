@@ -1,6 +1,7 @@
 <?php
     require_once("config.php");
     require_once( "header.php");
+    
 ?>
 <div></div>
 <div class="header">
@@ -21,7 +22,7 @@
     <div class="linkerdiv">
         <fieldset><legend><h3>Selecteer een reservering: </h3></legend>
             <form action="" id="selecteer-reservering" method="post">
-                <label>Datum: </label><input type="date" name="datum" required="true" placeholder="DD/MM/JJJJ">
+                <label>Datum: </label><input type="date" name="datum" required="true" placeholder="DD-MM-JJJJ">
             </form>
             <button type="submit" form="selecteer-reservering" value="Submit" name="btnSelectDate">Selecteer</button>
             <ul>
@@ -34,24 +35,35 @@
         </fieldset>
     </div>
     <div class="rechterdiv">
-        <h3 class="geselecteerde-reservering">Geselecteerde reservering: <span class="geselecteerde-gast" id="lblSelectedReservation" >Geen</span></h3>
+        <h3 class="geselecteerde-reservering">Geselecteerde reservering: <span class="geselecteerde-gast" id="lblSelectedReservation" >
+            <?php 
+            if(isset($_COOKIE[reservering]))
+            {
+                echo $_COOKIE[reservering];
+            }
+            else
+            {
+                echo "Geen";
+            }
+            ?>
+            </span></h3>
         <div class="menu-items-toevoegen">
             <fieldset><legend><h3>Menu items toevoegen: </h3></legend>
-                <button type="submit" form="toon-bestelling" value="Submit" name="btnMenu1">Menu 1</button>
-                <button type="submit" form="toon-bestelling" value="Submit" name="btnMenu2">Menu 2</button>
-                <button type="submit" form="toon-bestelling" value="Submit" name="btnMenu3">Menu 3</button>
-                <button type="submit" form="toon-bestelling" value="Submit" name="btnFris">Frisdrank</button>
-                <button type="submit" form="toon-bestelling" value="Submit" name="btnTheeKoffie">Thee/koffie</button>
-                <button type="submit" form="toon-bestelling" value="Submit" name="btnBier">Bier</button>
-                <button type="submit" form="toon-bestelling" value="Submit" name="btnWijn">Wijn</button>
+                <button type="submit" form="toonBestelling" value="Submit" id="btnMenu1" name="btnMenu1">Menu 1</button>
+                <button type="submit" form="toonBestelling" value="Submit" id="btnMenu2" name="btnMenu2">Menu 2</button>
+                <button type="submit" form="toonBestelling" value="Submit" id="btnMenu3" name="btnMenu3">Menu 3</button>
+                <button type="submit" form="toonBestelling" value="Submit" name="btnFris">Frisdrank</button>
+                <button type="submit" form="toonBestelling" value="Submit" name="btnTheeKoffie">Thee/koffie</button>
+                <button type="submit" form="toonBestelling" value="Submit" name="btnBier">Bier</button>
+                <button type="submit" form="toonBestelling" value="Submit" name="btnWijn">Wijn</button>
             </fieldset>
         </div>
         <div class="menu-item-overzicht">
             <fieldset><legend><h3>Bestelling: </h3></legend>
-                <form action="" method="post" id="toon-bestelling">
+                <form action="" method="post" id="toonBestelling">
                     <input type="hidden" name="selectedReservation" id="selectedReservation" value="<?php echo $_POST[selectedReservation]; ?>">
                 </form>
-                <button type="submit" form="toon-bestelling" value="Submit" name="btnShowOrder">Toon bestelling</button>
+                <button type="submit" form="toonBestelling" value="Submit" name="btnShowOrder">Toon bestelling</button>
                 <ul>
                     <?php
                     $reservationID = $_POST[selectedReservation];
