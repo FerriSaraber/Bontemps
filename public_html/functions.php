@@ -303,7 +303,7 @@ function deleteCookie($button)
 {
     if(isset($button))
     {
-        unset($_COOKIE[reservering]);
+        setcookie('reservering', ' ', time()-3600);
     }
 }
 
