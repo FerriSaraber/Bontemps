@@ -7,13 +7,16 @@
 <div class="header">
     <div class="menupositie">
         <form action="add.php">
-            <input type="submit" value="Reservering toevoegen">
+            <input name="btnToevoegen" type="submit" value="Reservering toevoegen">
+            <?php deleteCookie($_POST[btnToevoegen]) ?>
         </form>
         <form action="index.php">
-            <input type="submit" value="Terug naar start">
+            <input name="btnStart" type="submit" value="Terug naar start">
+            <?php deleteCookie($_POST[btnStart]) ?>
         </form>
         <form action="menuwijzigen.php">
-            <input type="submit" value="Menu aanpassen">
+            <input name="btnAanpassen" type="submit" value="Menu aanpassen">
+            <?php deleteCookie($_POST[btnAanpassen]) ?>
         </form>
     </div>
 </div>
