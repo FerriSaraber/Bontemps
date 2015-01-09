@@ -6,17 +6,10 @@
 <div></div>
 <div class="header">
     <div class="menupositie">
-        <form action="add.php">
-            <input name="btnToevoegen" type="submit" value="Reservering toevoegen">       
-        </form>
-
-        <form action="index.php" method="post">
-            <input name="btnStart" type="submit" value="Terug naar start">
-        </form>
-
-        <form action="menuwijzigen.php" method="post">
-            <input name="btnAanpassen" type="submit" value="Menu aanpassen">           
-        </form>
+        <a href="" id="toevoegen">Reservering toevoegen</a>
+        <a href="index.php" id="index">Terug naar start</a>
+        <a href="menuwijzigen.php" id="wijzigen">Menu aanpassen</a>
+       
     </div>
 </div>
 <hr>
