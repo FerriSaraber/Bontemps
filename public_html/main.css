@@ -1,7 +1,5 @@
 /*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Super Sanne is de beste 4ever #1 xoxoxo ;)
 */
 /* 
     Created on : 24-Dec-2014, 13:41:19
@@ -546,7 +544,7 @@ hr{
 
 #aanpassen .menu-item-overzicht button {
     text-align: center;
-    width:100px;
+    width:200px;
     height:30px;
     margin-right:10px;
     float: left;
@@ -556,6 +554,61 @@ hr{
     color: #FFFFFF;
     background-color: #6E6E6E;
 }
+#aanpassen .linkerdiv ul a{
+    float:left;
+    //margin-top:10px;
+    //width:140px;
+    //text-align: left;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+    color: #3B0B24;
+    font-size: 14px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px;
+    text-decoration: none;
+}
+
+#aanpassen .linkerdiv ul{
+    list-style-type:none;
+    float:left;    
+    clear:both;
+    margin-left:10px;
+}
+
+#aanpassen .linkerdiv ul a:hover{
+    font-weight:700;
+}
+
+#aanpassen .menu-item-overzicht ul a{
+    float:left;
+    clear:both;
+    //margin-top:10px;
+    //width:140px;
+    //text-align: left;
+    margin-top:10px;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+    color: #3B0B24;
+    font-size: 14px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px;
+    text-decoration: none;
+}
+
+#aanpassen .menu-item-overzicht ul{
+    list-style-type:none;
+    float:left;    
+    clear:both;
+    margin-left:10px;
+    width:100px;
+}
+
+#aanpassen .menu-item-overzicht ul a:hover{
+    font-weight:700;
+}
+
 
 //========================================================================= Menu wijzigen=================================================
 
