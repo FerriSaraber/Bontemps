@@ -20,26 +20,32 @@
 <div id="menuwijzigen">
     <div class="linkerding">
         <fieldset><legend><h3>Menu items wijzigen: </h3></legend>
-            <form action="#" method="get" id="menu-item-wijzigen">
-                <textarea>
-                </textarea>
+            <form action="" method="post" id="menu-item-wijzigen">
+                <label>Kies menu: </label>
+                <select name="selectedMenu">
+                    <option value="1">Menu 1</option>
+                    <option value="2">Menu 2</option>
+                    <option value="3">Menu 3</option>
+                </select>
+                <label>Nieuwe naam: </label><input type="text" name="newName">
+                <label>Nieuwe beschrijving: </label><textarea name="newDiscription"></textarea>
+                <label>Nieuwe prijs: </label><input type="text" name="newPrice" placeholder="00,--">
             </form>
-        <button type="submit" form="menu-item-wijzigen" value="Submit">Verwijder</button></fieldset>
-        <form action="#" method="get" id="wijzig-item-prijs">
-            <label>Nieuwe prijs: </label><input type="text" name="wijzig-item-prijs" placeholder="00,--">
-        </form>
-        <button type="submit" form="wijzig-item-prijs" value="Submit">Wijzigen</button>
-    </div>
-    <div class="rechterding">
-        <fieldset><legend><h3>Menu items toevoegen: </h3></legend>
-            <form action="#" method="get" id="menu-item-toevoegen">
-                <label>Nieuw item: </label><input type="text" name="nieuw-menu-item">
-                <label>Prijs item: </label><input type="text" name="nieuw-menu-prijs">
-            </form>
-            <button type="submit" form="menu-item-toevoegen" value="Submit">Toevoegen</button>
-        </fieldset>
+            <button type="submit" form="menu-item-wijzigen" value="Submit" name="btnChange">Wijzig</button></fieldset>
     </div>
 </div>
+<?php
+//delclare variables
+$selectedMenu = $mysqli->real_escape_string($_POST[selectedMenu]);
+$newName = $mysqli->real_escape_string($_POST[newName]);
+$newDiscription = $mysqli->real_escape_string($_POST[newDiscription]);
+$newPrice = $mysqli->real_escape_string($_POST[newPrice]);
+$btnChange = $_POST[btnChange];
+
+
+//call methods
+changeMenu($selectedMenu, $newName, $newDiscription, $newPrice, $btnChange, $mysqli);
+?>
 <?php
 	require_once( "footer.php");
 ?> 

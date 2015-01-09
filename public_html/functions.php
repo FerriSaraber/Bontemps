@@ -110,9 +110,6 @@ function checkReserved($date, $time, $amount, $menu1, $menu2, $menu3, $button, $
             {
                 $insertMenu3 = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$reservationID', 3)");
             }
-
-            header("Location: index.php");
-            die();
         }
     }
 }
@@ -293,6 +290,13 @@ function addItem($reservationID, $button1, $button2, $button3, $button4, $button
     }
 }
 
-
+function changeMenu($menuID, $name, $discription, $price, $button, $mysqli)
+{
+    if(isset($button))
+    {
+        $updateMenu = $mysqli->query("UPDATE menu_lijst SET naam='$name', beschrijving='$discription', prijs='$price' WHERE id='$menuID'");
+        echo "<script>alert('Menu is gewijzigd');</script>";
+    }
+}
 
 ?> 
