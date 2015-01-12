@@ -100,48 +100,72 @@ hr{
     position:relative;
     height: 340px;
 }
+#printRekening{
+    width: 300px;
+    float: left;
+    clear:both;
+    //margin-top:90px;
+}
 
-.container textarea{
-    width:180px;
-    height:300px;
-    margin: 0 auto;
+#printRekening input{
     font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
-    font-size:15px;
-    resize: none;
-    float: left; 
-    position:relative;
-    border:1px solid #6E6E6E;
-    outline:none;
+    text-align: left;
+    width: 80px;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    display:block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#printRekening ul{
+    list-style-type:none;
+    float:left;    
+    clear:both;
+    margin-left: -38px;
+}
+
+#printRekening a{
+    text-decoration:none;
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+    color: #3B0B24;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+}
+
+#printRekening a:hover{
+    font-weight: 700;
+}
+
+#printRekening button{
+   text-align: center;
+   width: 88px;
+   height:30px;
+   clear:both;
+   display:block;
+   font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
+   color: #FFFFFF;
+   background-color: #6E6E6E;
 }
 
 .container textfield{
-    width:600px;
-    height:340px;
+    width:400px;
     display:block;
-    margin-left:300px;
+    margin-left:100px;
+    float: right;
     font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
     font-size:15px;
     color: #3B0B24;
     border: 0.5px solid #3B0B24;
     background-color: #F2F2F2;
     padding-left:10px;
-    
+    margin-top:20px;
 }
-
-.container input {
-    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
-    color: #FFFFFF;
-    background-color: #6E6E6E;
-    width: 180px;
-    font-size: 14px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 500;
-    position:absolute;
-    display:block;
-    margin-top:310px;
-}
-
 //================================================================Reservering toevoegen==================================================
 .container-add{
     width:1000px;
@@ -524,9 +548,9 @@ hr{
 
 #aanpassen .menu-item-overzicht{
     width:300px;
-    float:right;
+    float:left;
     margin-top: 60px;
-    margin-right:140px;
+    margin-left:140px;
 }
 
 #aanpassen .menu-item-overzicht textarea{
@@ -556,9 +580,6 @@ hr{
 }
 #aanpassen .linkerdiv ul a{
     float:left;
-    //margin-top:10px;
-    //width:140px;
-    //text-align: left;
     font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
     color: #3B0B24;
     font-size: 14px; 
