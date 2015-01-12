@@ -5,8 +5,12 @@ $('.linkerdiv ul li a').click(function(){
    document.cookie = 
            'reservering=' + geselecteerd + '; expires=Fri, 1 Feb 2025 20:00:00 UTC; path=/'
 });
-var aanpaspagina = true;
 
 $('.menu-item-overzicht ul li a').click(function(){
-    alert($(this).attr('data-id'));
+    var geselecteerd = $(this).html();
+    document.cookie = 
+           'orderedItem=' + geselecteerd + '; expires=Fri, 1 Feb 2025 20:00:00 UTC; path=/'
+   window.location = "aanpassen.php";
 });
+
+var aanpaspagina = true;

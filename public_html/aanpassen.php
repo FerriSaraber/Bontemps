@@ -67,7 +67,15 @@
                 <button type="submit" form="toonBestelling" value="Submit" name="btnShowOrder">Toon bestelling</button>
                 <ul>
                     <?php
-                    $reservationID = $_POST[selectedReservation];
+                    if(!isset($_COOKIE['reservationID']))
+                    {
+                        $reservationID = $_POST['selectedReservation'];
+                    }
+                    else
+                    {
+                       $reservationID = $_COOKIE[reservationID];
+                    }
+                    setcookie(reservationID, $reservationID, time()+3600);
                     $btnShowOrder = $_POST[btnShowOrder];
                     showOrderedItems($reservationID, $btnShowOrder, $mysqli);
                     ?>
@@ -88,11 +96,55 @@ $btnWijn = $_POST[btnWijn];
 
 
 //Call methods
-addItem($reservationID, $btnMenu1, $btnMenu2, $btnMenu3, $btnFris, $btnTheeKoffie, $btnBier, $btnWijn, $mysqli)
+addItem($reservationID, $btnMenu1, $btnMenu2, $btnMenu3, $btnFris, $btnTheeKoffie, $btnBier, $btnWijn, $mysqli);
 
+if(isset($_COOKIE['orderedItem']))
+    {
+        $reservationID = $_COOKIE['reservationID'];
+        $orderedItem = $_COOKIE['orderedItem'];
+        
+        $selectMenus = $mysqli->query("SELECT id FROM menu_lijst WHERE naam = '$orderedItem'");
+        if ($selectMenus == false)
+        {
+            echo "Query mislukt. Foutmelding: " . $mysqli->error;
+            die;
+        }
+        while($selectMenu = mysqli_fetch_array($selectMenus))
+        {
+            $menuID = $selectMenu['id'];
+            $deleteOrder = $mysqli->query("DELETE FROM bestellingen WHERE bestelde_gerechtenid = '$menuID' AND reserveringid = '$reservationID' LIMIT 1");
+            echo "<script>alert('Item is verwijderd');</script>";
+            if ($deleteOrder == false)
+            {
+                echo "Query mislukt. Foutmelding: " . $mysqli->error;
+                die;
+            }
+        }
+        
+        $selectDrinks = $mysqli->query("SELECT id FROM dranken_lijst WHERE naam = '$orderedItem'");
+        if ($selectMenus == false)
+        {
+            echo "Query mislukt. Foutmelding: " . $mysqli->error;
+            die;
+        }
+        while($selectDrink = mysqli_fetch_array($selectDrinks))
+        {
+            $drinkID = $selectDrink['id'];
+            $deleteOrder = $mysqli->query("DELETE FROM bestellingen WHERE bestelde_drankenid = '$drinkID' AND reserveringid = '$reservationID' LIMIT 1");
+            echo "<script>alert('Item is verwijderd');</script>";
+            if ($deleteOrder == false)
+            {
+                echo "Query mislukt. Foutmelding: " . $mysqli->error;
+                die;
+            }
+        }
+    } 
 ?>
 
 <script type="text/javascript" src="aanpassen.js"></script>
+<script>document.cookie = 
+           'orderedItem=""; expires=Fri, 1 Feb 1980 20:00:00 UTC; path=/'</script>
+
 <?php
 	require_once( "footer.php");
 ?> 

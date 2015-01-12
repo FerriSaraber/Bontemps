@@ -116,7 +116,11 @@ function checkReserved($date, $time, $amount, $menu1, $menu2, $menu3, $button, $
 
 function searchDate($date, $button, $mysqli)
 {
-    if(isset($button))
+    if(isset($button) && isset($_COOKIE['reservering']))
+    {
+        echo "<script>alert('Er is al een reservering geselecteerd, keer aub eerst terug naar start');</script>";
+    }
+    elseif(isset($button))
     {
         $datestamp = strtotime($date);
         $date = date("Y-m-d H:i:s", $datestamp);
@@ -215,7 +219,8 @@ function addItem($reservationID, $button1, $button2, $button3, $button4, $button
     {
         if($reservationID)
         {
-            $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$reservationID', 1)");    
+            $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$reservationID', 1)");
+            echo "<script>alert('Item is toegevoegd');</script>";
         }
         else
         {
@@ -227,6 +232,7 @@ function addItem($reservationID, $button1, $button2, $button3, $button4, $button
         if($reservationID)
         {
             $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$reservationID', 2)");
+            echo "<script>alert('Item is toegevoegd');</script>";
         }
         else
         {
@@ -238,6 +244,7 @@ function addItem($reservationID, $button1, $button2, $button3, $button4, $button
         if($reservationID)
         {
             $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_gerechtenid) VALUES (NULL, '$reservationID', 3)");
+            echo "<script>alert('Item is toegevoegd');</script>";
         }
         else
         {
@@ -249,6 +256,7 @@ function addItem($reservationID, $button1, $button2, $button3, $button4, $button
         if($reservationID)
         {
             $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_drankenid) VALUES (NULL, '$reservationID', 1)");
+            echo "<script>alert('Item is toegevoegd');</script>";
         }
         else
         {
@@ -260,6 +268,7 @@ function addItem($reservationID, $button1, $button2, $button3, $button4, $button
         if($reservationID)
         {
             $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_drankenid) VALUES (NULL, '$reservationID', 2)");
+            echo "<script>alert('Item is toegevoegd');</script>";
         }
         else
         {
@@ -271,6 +280,7 @@ function addItem($reservationID, $button1, $button2, $button3, $button4, $button
         if($reservationID)
         {
             $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_drankenid) VALUES (NULL, '$reservationID', 3)");
+            echo "<script>alert('Item is toegevoegd');</script>";
         }
         else
         {
@@ -282,6 +292,7 @@ function addItem($reservationID, $button1, $button2, $button3, $button4, $button
         if($reservationID)
         {
             $addItems = $mysqli->query("INSERT INTO bestellingen (id, reserveringid, bestelde_drankenid) VALUES (NULL, '$reservationID', 4)");
+            echo "<script>alert('Item is toegevoegd');</script>";
         }
         else
         {
@@ -354,6 +365,7 @@ function printBill($mysqli)
         echo "<br>Totaal: &#8364;" . $total;
     }
 }
+
 
 
 ?> 
