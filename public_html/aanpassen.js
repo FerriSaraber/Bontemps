@@ -6,3 +6,7 @@ $('.linkerdiv ul li a').click(function(){
            'reservering=' + geselecteerd + '; expires=Fri, 1 Feb 2025 20:00:00 UTC; path=/'
 });
 var aanpaspagina = true;
+
+$('.menu-item-overzicht ul li a').click(function(){
+    alert($(this).attr('data-id'));
+});
