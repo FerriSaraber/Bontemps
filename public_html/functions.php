@@ -299,5 +299,61 @@ function changeMenu($menuID, $name, $discription, $price, $button, $mysqli)
     }
 }
 
+function printBill($mysqli)
+{
+    if(isset($_COOKIE['reserveringID']))
+    {
+        echo "<h1>Rekening: </h1>";
+        $total = 0;
+        $reserveringID = $_COOKIE['reserveringID'];
+        $select_gerechtenID = $mysqli->query("SELECT bestelde_gerechtenid FROM bestellingen WHERE reserveringid = '$reserveringID'");
+        if ($select_gerechtenID == false)
+        {
+            echo "Query mislukt. Foutmelding: " . $mysqli->error;
+            die;
+        }
+        while($select_gerechtID = mysqli_fetch_array($select_gerechtenID))
+        {
+            $menuID = $select_gerechtID[bestelde_gerechtenid];
+            $select_gerechten = $mysqli->query("SELECT naam, prijs FROM menu_lijst WHERE id = '$menuID'");
+            if ($select_gerechten == false)
+            {
+                echo "Query mislukt. Foutmelding: " . $mysqli->error;
+                die;
+            }
+            while($select_gerecht = mysqli_fetch_array($select_gerechten))
+            {
+                $total = $total + $select_gerecht[prijs];
+                echo $select_gerecht[naam] . "&nbsp &nbsp &nbsp &#8364;" . $select_gerecht[prijs] . "<br>";
+            }
+        }
+        
+        
+        $select_drankenID = $mysqli->query("SELECT bestelde_drankenid FROM bestellingen WHERE reserveringid = '$reserveringID'");
+        if ($select_drankenID == false)
+        {
+            echo "Query mislukt. Foutmelding: " . $mysqli->error;
+            die;
+        }
+        while($select_drankID = mysqli_fetch_array($select_drankenID))
+        {
+            $drankID = $select_drankID[bestelde_drankenid];
+            $select_dranken = $mysqli->query("SELECT naam, prijs FROM dranken_lijst WHERE id = '$drankID'");
+            if ($select_dranken == false)
+            {
+                echo "Query mislukt. Foutmelding: " . $mysqli->error;
+                die;
+            }
+            while($select_drank = mysqli_fetch_array($select_dranken))
+            {
+                $total = $total + $select_drank[prijs];
+                echo $select_drank[naam] . "&nbsp &nbsp &nbsp &#8364;" . $select_drank[prijs] . "<br>";
+            }
+        }
+        
+        echo "<br>Totaal: &#8364;" . $total;
+    }
+}
+
 
 ?> 

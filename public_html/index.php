@@ -22,9 +22,9 @@
 <hr>
 <div class="container">
     <div id="printRekening">
-        <fieldset><legend><h3>Selecteer een reservering: </h3></legend>
+        <fieldset><legend><h3>Selecteer een rekening: </h3></legend>
             <form action="" id="selecteer-rekening" method="post">
-                <h3><label>Datum: </label></h3><input type="date" name="datum" placeholder="DD-MM-JJJJ">
+                <h3><label>Datum: </label></h3><input type="date" name="datum" placeholder="DD-MM-JJJJ" required="true">
             </form>
             <button type="submit" form="selecteer-rekening" value="Submit" name="btnSelectBill">Selecteer</button>
             <ul>
@@ -35,6 +35,11 @@
                 ?>
             </ul>
         </fieldset>
+    </div>
+    <div id="printed-rekening">
+        <?php
+            printBill($mysqli);
+        ?>
     </div>
     <textfield id="menu-overzicht">
             <?php
@@ -57,6 +62,8 @@
     </textfield>
 </div>
 <script type="text/javascript" src="index.js"></script>
+<script>document.cookie = 
+           'reserveringID=""; expires=Fri, 1 Feb 1980 20:00:00 UTC; path=/'</script>
 <?php
 	require_once( "footer.php");
 ?>
