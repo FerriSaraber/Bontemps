@@ -304,7 +304,7 @@ function addItem($reservationID, $button1, $button2, $button3, $button4, $button
 function changeMenu($menuID, $name, $discription, $price, $button, $mysqli)
 {
     if(isset($button))
-    {
+    {   
         $updateMenu = $mysqli->query("UPDATE menu_lijst SET naam='$name', beschrijving='$discription', prijs='$price' WHERE id='$menuID'");
         echo "<script>alert('Menu is gewijzigd');</script>";
     }
