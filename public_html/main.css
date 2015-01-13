@@ -193,9 +193,10 @@ hr{
 .gast-toevoegen label{
     width: 100px;
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     text-align: left;
     float:left;
+    clear:both;
     font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
     color: #3B0B24;
     font-size: 14px; 
