@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ERROR);
 function addGuest($firstname, $surname, $address, $city, $email, $phone, $button, $mysqli)
 {
     if(isset($button))
