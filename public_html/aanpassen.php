@@ -1,4 +1,5 @@
 <?php
+    error_reporting(E_ERROR);
     require_once("config.php");
     require_once( "header.php");
 ?>
@@ -38,6 +39,7 @@
     <div class="rechterdiv">
         <h3 class="geselecteerde-reservering">Geselecteerde reservering: <span class="geselecteerde-gast" id="lblSelectedReservation" >
             <?php 
+            error_reporting(E_ERROR);
             if(isset($_COOKIE[reservering]))
             {
                 echo $_COOKIE[reservering];
@@ -67,6 +69,7 @@
                 <button type="submit" form="toonBestelling" value="Submit" name="btnShowOrder">Toon bestelling</button>
                 <ul>
                     <?php
+                    $btnShowOrder = $_POST[btnShowOrder];
                     if(!isset($_COOKIE['reservationID']))
                     {
                         $reservationID = $_POST['selectedReservation'];
@@ -76,7 +79,6 @@
                        $reservationID = $_COOKIE[reservationID];
                     }
                     setcookie(reservationID, $reservationID, time()+3600);
-                    $btnShowOrder = $_POST[btnShowOrder];
                     showOrderedItems($reservationID, $btnShowOrder, $mysqli);
                     ?>
                 </ul>
